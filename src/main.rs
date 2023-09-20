@@ -1,3 +1,4 @@
+
 use std::{fs,env};
 
 fn main() {
@@ -7,24 +8,20 @@ fn main() {
     args.push("./".to_string());
     args.push("ndbg".to_string());
 
-    let mut path = &args[1];
+    let path = &args[1];
     let mode = &args[2];
 
     if mode == "dbg" {
         dbg!(&args);
+         println!("PATH: {}", path);
+
     }
 
     
     print_path(path.to_string());
 }
 
-fn print_path(path: String) {
-
-         
-    
-    
-    println!("{}", path);
-
+fn print_path(path: String) {         
     let paths = fs::read_dir(path.clone()).unwrap();
 
     let mut paths2 = paths        
@@ -37,10 +34,13 @@ fn print_path(path: String) {
         }).collect::<Vec<String>>();
 
     paths2.sort();
-    let mut loops:usize = 0;
-    while loops < paths2.len() {
-        println!("{}", paths2[loops].clone());
-        loops = loops + 1;
-    }
+        
+    println!(
+        "{}", paths2.iter()
+        .fold(String::new(),
+        |acc, num| acc + &num.to_string()
+        + " ")
+    );
 }
+
 
