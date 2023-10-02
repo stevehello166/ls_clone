@@ -1,5 +1,5 @@
 
-use std::{fs,env};
+use std::{fs,env, path::PathBuf};
 
 fn main() {
     let mut args: Vec<String> = env::args().collect();
@@ -18,11 +18,16 @@ fn main() {
     }
 
     
-    print_path(path.to_string());
+    print_path(path);
 }
 
-fn print_path(path: String) {         
-    let paths = fs::read_dir(path.clone()).unwrap();
+fn print_path(path: &String) { 
+    let my_path_buf: PathBuf = PathBuf::from(path); 
+    if my_path_buf.is_file() {
+        println!("Not a directory");
+        return();
+    }       
+    let paths = fs::read_dir(path.clone()).expect("test");
 
     let mut paths2 = paths        
         .filter_map(|entry| {
