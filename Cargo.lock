@@ -86,7 +86,7 @@ checksum = "3852614a3bd9ca9804678ba6be5e3b8ce76dfc902cae004e3e0c44051b6e88db"
 
 [[package]]
 name = "ls_clone"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "colored",
 ]

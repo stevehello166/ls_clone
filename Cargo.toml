@@ -1,9 +1,9 @@
 [package]
 name = "ls_clone"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license = "MIT"
-description = "A clone of ls that i wrote in a weekend"
+description = "A clone of ls that I wrote in a weekend"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
